@@ -1,0 +1,74 @@
+
+/* 🌌 GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* 🌑 BASE BACKGROUND */
+body {
+  background: hsl(0, 0%, 0%);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* 🌠 APP CONTAINER */
+.app {
+  position: relative;
+  z-index: 1;
+}
+
+/* 🪐 SECTION BASE STYLE */
+section {
+  position: relative;
+  width: 100%;
+  padding: 80px 10%;
+  background: transparent !important;
+}
+
+/* ✨ CENTERED HEADINGS DEFAULT */
+h2 {
+  text-align: center;
+}
+
+/* 🌌 OPTIONAL: GLASS EFFECT FOR CARDS */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+/* 🚀 SMOOTH SCROLL */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 🌠 LINKS */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 🧲 BUTTON HOVER GLOBAL */
+button {
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* 📱 RESPONSIVE BASE */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 6%;
+  }
+}
+.app-content {
+  position: relative;
+  z-index: 1;
+}

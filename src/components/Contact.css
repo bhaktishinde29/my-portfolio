@@ -1,0 +1,235 @@
+/* ==========================
+   CONTACT SECTION
+========================== */
+.contact-section {
+  position: relative;
+  min-height: 100vh;
+
+  padding: 60px 3%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  text-align: center;
+  overflow: hidden;
+
+  background: radial-gradient(circle at center, #050505, #000);
+  color: white;
+}
+
+/* ==========================
+   GALAXY BACKGROUND GLOW
+========================== */
+.galaxy-bg {
+  position: absolute;
+  inset: 30%;
+
+  background:
+    radial-gradient(circle at center,
+      rgba(168, 85, 247, 0.25),
+      transparent 40%),
+
+    radial-gradient(circle at 30% 40%,
+      rgba(120, 60, 200, 0.2),
+      transparent 50%),
+
+    radial-gradient(circle at 70% 60%,
+      rgba(60, 20, 120, 0.15),
+      transparent 60%);
+
+  filter: blur(90px);
+  opacity: 0.8;
+
+  animation: spin 40s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+
+  to {
+    transform: rotate(360deg) scale(1.1);
+  }
+}
+
+/* ==========================
+   WRAPPER
+========================== */
+.contact-wrapper {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1500px;
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+/* ==========================
+   GALAXY SIDE
+========================== */
+.contact-left {
+  flex: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 650px;
+}
+
+/* Galaxy component container */
+.galaxy-canvas {
+  width: 100%;
+  height: 650px;
+}
+
+.galaxy-canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ==========================
+   CONTACT FORM
+========================== */
+.contact-card {
+  flex: 1;
+  max-width: 500px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  text-align: left;
+}
+
+/* Heading */
+.contact-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.contact-card p {
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+/* ==========================
+   INPUTS
+========================== */
+.contact-card input,
+.contact-card textarea {
+  padding: 12px;
+
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+
+  background: rgba(255,255,255,0.05);
+  color: white;
+
+  outline: none;
+}
+
+.contact-card textarea {
+  resize: none;
+}
+
+/* ==========================
+   BUTTON
+========================== */
+.contact-card button {
+  padding: 12px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #ff00cc,
+    #3333ff
+  );
+
+  color: white;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.contact-card button:hover {
+  transform: scale(1.05);
+
+  box-shadow:
+    0 0 25px rgba(168,85,247,0.4);
+}
+
+/* ==========================
+   FLOATING STARS
+========================== */
+.floating-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+
+  border-radius: 50%;
+  background: white;
+
+  opacity: 0.8;
+
+  animation: twinkle ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.8);
+  }
+}
+
+/* ==========================
+   MOBILE
+========================== */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .contact-left {
+    width: 100%;
+    min-height: 350px;
+  }
+
+  .galaxy-canvas {
+    height: 350px;
+  }
+
+  .contact-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
