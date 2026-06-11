@@ -4,7 +4,7 @@ import { FaGraduationCap } from "react-icons/fa";
 export default function Education() {
   const educationData = [
     {
-      degree: "Bachelor of Engineering in Computer Engineering",
+      degree: "Bachelor of Engineering in Electronics & Computer Engineering",
       college: "Sanjivani college of Engineering, Kopargoan",
       duration: "2024 - 2028",
       score: "CGPA: 8.9/10",

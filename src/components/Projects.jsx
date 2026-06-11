@@ -1,12 +1,16 @@
 import ProjectCard from "./ProjectCard";
 import "./Projects.css";
 
+import med from "../assets/med.jpg";
+import portfolio from "../assets/portfolio.png";
+import food from "../assets/food.png";
+
 const projects = [
   {
     title: "Medfind: Medicine Management Website",
     description: "Full-stack medicine ordering platform with auth & cart.",
     tech: ["Java", "Spring Boot", "MySQL", "Maven"],
-    image: "/med.jpg",
+    image: med,
     live:
       "https://drive.google.com/file/d/19rkDB0WQEdLG1fr-wYNE9LHtmi2IdUkK/view?usp=drivesdk",
     github: "https://github.com/bhaktishinde29/medifind",
@@ -15,7 +19,7 @@ const projects = [
     title: "Portfolio Website",
     description: "Modern animated portfolio with smooth UI.",
     tech: ["React", "Framer Motion"],
-    image: "/portfolio.png",
+    image: portfolio,
     live: "#",
     github: "#",
   },
@@ -23,7 +27,7 @@ const projects = [
     title: "Food Website",
     description: "Clean shopping UI with modern design.",
     tech: ["HTML", "React", "CSS"],
-    image: "/food.png",
+    image: food,
     live: "https://bhaktishinde29.github.io/Food-website/",
     github: "https://github.com/bhaktishinde29/Food-website",
   },

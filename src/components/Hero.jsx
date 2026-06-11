@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
-
 export default function Hero() {
   const roles = [
     "Full Stack Developer",
@@ -42,6 +41,9 @@ export default function Hero() {
   const githubLink = "https://github.com/bhaktishinde29";
   const linkedinLink = "https://www.linkedin.com/in/bhakti-shinde-121791329";
 
+  // ✅ SAFE BASE PATH (important fix)
+  const BASE = import.meta.env.BASE_URL;
+
   return (
     <section className="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
 
@@ -68,31 +70,32 @@ export default function Hero() {
       <div className="absolute bottom-20 right-20 w-72 h-72 bg-pink-500/20 rounded-full blur-[120px]" />
       <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-fuchsia-500/10 rounded-full blur-[150px] -translate-x-1/2 -translate-y-1/2" />
 
-      {/* 🔥 MAIN LAYOUT (LEFT + RIGHT) */}
+      {/* MAIN LAYOUT */}
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full px-6 md:px-20">
 
-       {/* 👩 LEFT SIDE - VIDEO */}
-<motion.div
-  initial={{ opacity: 0, x: -80 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 1 }}
-  className="flex-1 flex justify-center md:justify-start"
->
-  <div className="w-[320px] h-[320px] md:w-[380px] md:h-[380px] rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(217,70,239,0.4)]">
-  <video
-  src="/avtar.mp4"
-  autoPlay
-  loop
-  muted
-  playsInline
-  preload="auto"
-  className="w-full h-full object-cover"
-  onError={() => console.log("Video failed to load")}
-/>
-  </div>
-</motion.div>
+        {/* LEFT SIDE - VIDEO */}
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="flex-1 flex justify-center md:justify-start"
+        >
+          <div className="w-[320px] h-[320px] md:w-[380px] md:h-[380px] rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(217,70,239,0.4)]">
 
-        {/* ✨ RIGHT SIDE - TEXT */}
+            {/* ✅ FIXED VIDEO PATH */}
+            <video
+              src={`${BASE}avtar.mp4`}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </motion.div>
+
+        {/* RIGHT SIDE */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
@@ -143,7 +146,7 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* 🌐 SOCIAL ICONS */}
+          {/* SOCIAL ICONS */}
           <div className="flex justify-center gap-6 mt-6 text-3xl">
             <a
               href={linkedinLink}
