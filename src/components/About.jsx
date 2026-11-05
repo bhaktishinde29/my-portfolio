@@ -87,7 +87,7 @@ export default function About() {
             {/* Buttons */}
             <div className="flex flex-wrap justify-center gap-4 mt-10">
               <a
-                href="/resume.pdf"
+                href="assets/Bhakti_Shinde[ECE].pdf"
                 className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-500 hover:scale-105 transition"
               >
                 <HiDocumentText size={20} />

@@ -68,7 +68,3 @@ button:hover {
     padding: 60px 6%;
   }
 }
-.app-content {
-  position: relative;
-  z-index: 1;
-}
