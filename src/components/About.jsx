@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiDocumentText } from "react-icons/hi";
 import profilePhoto from "../assets/photo.jpeg";
-import resume from "../assets/Bhakti_Shinde[ECE].pdf";
+
 
 const About = () => {
   return (
@@ -79,17 +79,14 @@ const About = () => {
             {/* Buttons */}
             <div className="flex flex-wrap gap-4">
               {/* Resume Download */}
-              <a
-                href={resume}
-                download="Bhakti_Shinde_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-500 hover:scale-105 transition"
-              >
-                <HiDocumentText size={20} />
-                Resume
-              </a>
-
+             <a
+  href={`${import.meta.env.BASE_URL}Bhakti_Shinde_Resume.pdf`}
+  download="Bhakti_Shinde_Resume.pdf"
+  className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-500 hover:scale-105 transition"
+>
+  <HiDocumentText size={20} />
+  Resume
+</a>
               {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/bhakti-shinde-121791329"
