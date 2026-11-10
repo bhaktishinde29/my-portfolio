@@ -1,135 +1,141 @@
+
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiDocumentText } from "react-icons/hi";
-
 import profilePhoto from "../assets/photo.jpeg";
+import resume from "../assets/Bhakti_Shinde[ECE].pdf";
 
-export default function About() {
-  const dots = Array.from({ length: 180 }); // density control
-
+const About = () => {
   return (
     <section
       id="about"
-      className="relative max-w-6xl mx-auto px-6 py-20 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0b0616] text-white px-6 py-20"
     >
-      {/* 🌌 FLOATING PARTICLES BACKGROUND */}
+      {/* Background particles */}
       <div className="absolute inset-0 pointer-events-none">
-        {dots.map((_, i) => (
-          <span
+        {Array.from({ length: 180 }).map((_, i) => (
+          <motion.span
             key={i}
-            className="absolute w-[2px] h-[2px] bg-white rounded-full opacity-60"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animation: `floatStars ${6 + Math.random() * 10}s linear infinite`,
-              animationDelay: `${Math.random() * 5}s`,
+            className="absolute w-1 h-1 rounded-full bg-purple-400/40"
+            initial={{
+              x: Math.random() * window.innerWidth,
+              y: Math.random() * window.innerHeight,
+              opacity: 0,
+            }}
+            animate={{
+              y: [null, -30, 30],
+              opacity: [0.2, 0.8, 0.2],
+            }}
+            transition={{
+              duration: 5 + Math.random() * 5,
+              repeat: Infinity,
+              ease: "easeInOut",
             }}
           />
         ))}
       </div>
 
-      {/* CONTENT */}
-      <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10"
-      >
+      <div className="relative z-10 max-w-6xl w-full mx-auto">
         {/* Heading */}
-        <h2 className="text-5xl font-bold mb-16 text-center bg-gradient-to-r from-purple-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent">
-          About Me
-        </h2>
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-5xl font-bold text-center mb-16"
+        >
+          About{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-fuchsia-500">
+            Me
+          </span>
+        </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Left Side */}
-          <div>
-            <p className="text-zinc-300 text-lg leading-8">
-              Hi, I'm{" "}
-              <span className="font-semibold text-fuchsia-400">
-                Bhakti Shinde
-              </span>
-              , an Electronics and Computer Engineering student passionate about software development, technology, and innovation.
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* About text */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h3 className="text-2xl md:text-3xl font-semibold mb-6">
+              Hello! I'm Bhakti Shinde
+            </h3>
+
+            <p className="text-gray-300 leading-8 text-lg mb-6">
+              I am an Electronics and Computer Engineering student passionate
+              about technology, software development, and creating innovative
+              solutions. I enjoy learning new technologies and building
+              projects that solve real-world problems.
             </p>
 
-            <p className="text-zinc-300 text-lg leading-8 mt-6">
-              🛠 My interests include frontend development, backend systems, UI/UX design and creating digital experiences that solve real-world problems.
+            <p className="text-gray-300 leading-8 text-lg mb-8">
+              My interests include frontend development, backend development,
+              and UI/UX design. I work with technologies such as React,
+              JavaScript, Java, Node.js, MongoDB, and Tailwind CSS. I am always
+              eager to improve my skills and explore new opportunities.
             </p>
-
-            <p className="text-zinc-300 text-lg leading-8 mt-6">
-              🚀 I work with React, JavaScript, Node.js, MongoDB and Tailwind CSS.
-            </p>
-
-            <p className="text-zinc-300 text-lg leading-8 mt-6">
-              💡 My goal is to build meaningful products and launch my own startup.
-            </p>
-
-            <div className="mt-8">
-              <div className="h-1 w-32 rounded-full bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500"></div>
-            </div>
-          </div>
-
-          {/* Right Side */}
-          <div className="flex flex-col items-center">
-            {/* Glow Image */}
-            <div className="relative group">
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-500 blur-3xl opacity-70 animate-pulse"></div>
-
-              <div className="relative w-80 h-80 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-                <img
-                  src={profilePhoto}
-                  alt="Bhakti Shinde"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
 
             {/* Buttons */}
-            <div className="flex flex-wrap justify-center gap-4 mt-10">
+            <div className="flex flex-wrap gap-4">
+              {/* Resume Download */}
               <a
-                href="assets/Bhakti_Shinde[ECE].pdf"
+                href={resume}
+                download="Bhakti_Shinde_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-500 hover:scale-105 transition"
               >
                 <HiDocumentText size={20} />
                 Resume
               </a>
 
+              {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/bhakti-shinde-121791329"
-                className="flex items-center gap-2 px-6 py-3 rounded-xl border border-purple-500 text-white hover:bg-purple-600 transition"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border border-purple-400 text-white hover:bg-purple-600/20 hover:scale-105 transition"
               >
                 <FaLinkedin size={20} />
                 LinkedIn
               </a>
 
+              {/* GitHub */}
               <a
                 href="https://github.com/bhaktishinde29"
-                className="flex items-center gap-2 px-6 py-3 rounded-xl border border-pink-500 text-white hover:bg-pink-600 transition"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border border-purple-400 text-white hover:bg-purple-600/20 hover:scale-105 transition"
               >
                 <FaGithub size={20} />
                 GitHub
               </a>
             </div>
-          </div>
-        </div>
-      </motion.div>
+          </motion.div>
 
-      {/* 🌌 FLOAT ANIMATION */}
-      <style>{`
-        @keyframes floatStars {
-          0% {
-            transform: translateY(0px);
-            opacity: 0.2;
-          }
-          50% {
-            opacity: 0.8;
-          }
-          100% {
-            transform: translateY(-120px);
-            opacity: 0.2;
-          }
-        }
-      `}</style>
+          {/* Profile image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center"
+          >
+            <div className="relative">
+              <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-fuchsia-500 blur-lg opacity-40" />
+
+              <img
+                src={profilePhoto}
+                alt="Bhakti Shinde"
+                className="relative w-64 h-72 md:w-80 md:h-96 object-cover rounded-2xl border-2 border-purple-400/50 shadow-2xl"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </section>
   );
-}
+};
+
+export default About;
